@@ -13,7 +13,7 @@ const data = [
 ];
 
 const data2 = [
-    { id: 1, list: [8, 8, 22],color: 'red' },
+    { id: 1, list: [8, 8, 22], color: 'red' },
     { id: 2, list: [74, 5, 220, 7], color: 'red' },
     { id: 3, list: [8, 1, 0, 0, 8, 22], color: 'red' },
 ]
@@ -24,16 +24,44 @@ const data2 = [
 const d01 = data.map(e => e.color == 'red' ? { ...e, color: 'orange' } : { ...e })
 const d2 = data.map(e => e.id % 2 == 0 && e.type == 'car' ? { ...e, color: 'black' } : { ...e })
 const d3 = data.map(e => e.name.length <= 4 ? { ...e, name: e.name.padEnd(8, '*') } : { ...e });
-const d4 = data2.map(e => ({...e, list: [...e.list, 0]}))
+const d4 = data2.map(e => ({ ...e, list: [...e.list, 0] }))
 const d5 = data2.filter(e => e.color == 'red');
 const d6 = data.filter(e => e.type != 'animal');
 data.filter(e => e.type == 'animal').forEach(a => console.log(a.name));
 const d7 = data.filter(e => e.type == 'animal' && e.color == 'green');
 const d8 = data.filter(e => e.type == 'car' || e.type == 'man')
-.map(e => e.color != 'red' ? {...e, color: 'black'} :  {...e});
+    .map(e => e.color != 'red' ? { ...e, color: 'black' } : { ...e });
+const d9 = data.filter(e => e.id != '6')
 
+const d10 = [...data];
+// d10.sort((a, b) => {
+//     if (a.name > b.name) {
+//         return 1;
+//     }
+//     if (a.name < b.name) {
+//         return -1;
+//     }
+//     return 0;
+// })  
 
-console.log(d8)
+//-----Faster way to sort by ABC-----------//
+
+d10.sort((a, b) => a.name.localeCompare(b.name))
+
+//------Sorting for numbers---------------//
+const d11 = [...data];
+d11.sort((a, b) => b.id - a.id);
+
+//----------------------//
+d12 = [...data]
+
+d12.sort((a, b) => b.name.length - a.name.length);
+
+d13 = [...data]
+
+d13.sort((a, b) => b.type == 'car' ? 1 : -1)
+
+console.log(d13)
 
 
 

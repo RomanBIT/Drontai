@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.dog {
+  letter-spacing: 5px;
+}
+
+.cat {
+  letter-spacing: 30px;
+}

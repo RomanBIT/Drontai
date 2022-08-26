@@ -13,20 +13,30 @@ const data = [
 ];
 
 const data2 = [
-    { id: 1, list: [8, 8, 22] },
-    { id: 2, list: [74, 5, 220, 7] },
-    { id: 3, list: [8, 1, 0, 0, 8, 22] },
+    { id: 1, list: [8, 8, 22],color: 'red' },
+    { id: 2, list: [74, 5, 220, 7], color: 'red' },
+    { id: 3, list: [8, 1, 0, 0, 8, 22], color: 'red' },
 ]
 
 //   data.forEach(e => console.log(e.name));
 
 //   const d1 = data.map(c => ({...c, color: c.color.replace('red', 'orange')})); -- Veiks tik siuo atveju
 const d01 = data.map(e => e.color == 'red' ? { ...e, color: 'orange' } : { ...e })
-
 const d2 = data.map(e => e.id % 2 == 0 && e.type == 'car' ? { ...e, color: 'black' } : { ...e })
-
 const d3 = data.map(e => e.name.length <= 4 ? { ...e, name: e.name.padEnd(8, '*') } : { ...e });
+const d4 = data2.map(e => ({...e, list: [...e.list, 0]}))
+const d5 = data2.filter(e => e.color == 'red');
+const d6 = data.filter(e => e.type != 'animal');
+data.filter(e => e.type == 'animal').forEach(a => console.log(a.name));
+const d7 = data.filter(e => e.type == 'animal' && e.color == 'green');
+const d8 = data.filter(e => e.type == 'car' || e.type == 'man')
+.map(e => e.color != 'red' ? {...e, color: 'black'} :  {...e});
 
-console.log(d3)
 
-//--------- Paskaita 002 01:32 baigta ---------//
+console.log(d8)
+
+
+
+
+
+

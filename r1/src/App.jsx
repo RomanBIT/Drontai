@@ -1,5 +1,6 @@
 import './App.css';
 import Cat from './Components/004/Cat';
+import randColor from './Functions/randColor';
 
 
 const cats = [
@@ -14,7 +15,11 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>Lists</h1>
+                <h1>
+                    {
+                        [...'Dinozauras'].map((l, i) => <span key={i} style={{ color: randColor() }}>{l}</span>)
+                    }
+                </h1>
                 {/* <ul>
                     {
                         [...cats].sort((a, b) => b.weight - a.weight).map((cat, i) =>
@@ -23,7 +28,7 @@ function App() {
                 </ul> */}
                 <div className='container'>
                     {
-                        [...cats].sort((a, b) => a.name.localeCompare(b.name)).map((cat, i) => <Cat i= {i} key={cat.id} cat={cat} />)
+                        [...cats].sort((a, b) => a.name.localeCompare(b.name)).map((cat, i) => <Cat i={i} key={cat.id} cat={cat} />)
                     }
                 </div>
                 {/* <div className='container'>

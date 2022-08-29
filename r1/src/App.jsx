@@ -20,22 +20,17 @@ function App() {
                         [...cats].sort((a, b) => b.weight - a.weight).map((cat, i) =>
                             <li key={i}>{cat.name} <i>{cat.weight}kg</i></li>)
                     }
-                </ul>
-                <ul>
-                    {
-                        
-                    }
                 </ul> */}
-                <div>
+                <div className='container'>
                     {
-                        [...cats].sort((a, b) => a.name.localeCompare(b.name)).map(cat => <Cat key={cat.id} cat={cat} />)
+                        [...cats].sort((a, b) => a.name.localeCompare(b.name)).map((cat, i) => <Cat i= {i} key={cat.id} cat={cat} />)
                     }
                 </div>
-                <div className='container'>
+                {/* <div className='container'>
                     <Cat catName='Pilkis' weight='20' />
                     <Cat catName='Juodis' weight='5' />
                     <Cat catName='Rainis' weight='10' />
-                </div>
+                </div> */}
             </header>
         </div>
     );

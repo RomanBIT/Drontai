@@ -1,4 +1,6 @@
 import './App.css';
+import Cat from './Components/004/Cat';
+
 
 const cats = [
     { id: 1, weight: 5, name: 'Murka' },
@@ -13,7 +15,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <h1>Lists</h1>
-                <ul>
+                {/* <ul>
                     {
                         [...cats].sort((a, b) => b.weight - a.weight).map((cat, i) =>
                             <li key={i}>{cat.name} <i>{cat.weight}kg</i></li>)
@@ -21,10 +23,19 @@ function App() {
                 </ul>
                 <ul>
                     {
-                        [...cats].sort((a, b) => a.name.localeCompare(b.name)).map((cat, i) =>
-                            <li key={i}>{cat.name} <i>{cat.weight}kg</i></li>)
+                        
                     }
-                </ul>
+                </ul> */}
+                <div>
+                    {
+                        [...cats].sort((a, b) => a.name.localeCompare(b.name)).map(cat => <Cat key={cat.id} cat={cat} />)
+                    }
+                </div>
+                <div className='container'>
+                    <Cat catName='Pilkis' weight='20' />
+                    <Cat catName='Juodis' weight='5' />
+                    <Cat catName='Rainis' weight='10' />
+                </div>
             </header>
         </div>
     );

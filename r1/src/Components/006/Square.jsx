@@ -15,10 +15,13 @@ function Squares() {
     const sortUp = () => {
         setSq(s => [...s].sort((a, b) => b.number - a.number))
     }
-    
+    const sortDown = () => {
+        setSq(s => [...s].sort((a, b) => a.number - b.number))
+    }
+
     return (
         <>
-         <h1>STATE {sq.filter(s => s.number < 300).length}</h1>
+            <h1>STATE {sq.filter(s => s.number < 300).length}</h1>
             <div className="container">
 
                 {
@@ -28,12 +31,18 @@ function Squares() {
                     }} key={i}>{n.number}</div>)
                 }
             </div>
-            <button onClick={add}>add []</button>
-            <button onClick={sortUp}>SORT 9-0</button>
-            
+            <div className="container">
+                <button onClick={add}>add []</button>
+                <button onClick={sortUp}>SORT 9-0</button>
+                <button onClick={sortDown}>SORT 0-9</button>
+            </div>
+
         </>
     )
 
 }
 
 export default Squares;
+
+
+//-------------- 007 31:57 ----------------//

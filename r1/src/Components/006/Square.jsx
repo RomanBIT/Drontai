@@ -7,6 +7,7 @@ import randColor from '../../Functions/randColor';
 function Squares() {
 
     const [sq, setSq] = useState([])
+    const [selected, setSelected] = useState(null)
 
     const add = () => {
         setSq(s => [...s, {
@@ -25,44 +26,58 @@ function Squares() {
     }
 
     const sortDefault = () => {
-        setSq(s => [...s].sort((a, b) => a.row - b.row))
+        setSq(s => s.map(square => ({ ...square, show: true })).sort((a, b) => a.row - b.row))
     }
 
-        const filterBlack = () => {
-            setSq(s => s.map(square => square.number < 300 ? { ...square, show: true } : { ...square, show: false }))
+    const filterBlack = () => {
+        setSq(s => s.map(square => square.number < 300 ? { ...square, show: true } : { ...square, show: false }))
     }
 
-        const filterColor = () => {
-            setSq(s => s.map(square => square.number < 300 ? { ...square, show: false } : { ...square, show: true }))
+    const filterColor = () => {
+        setSq(s => s.map(square => square.number < 300 ? { ...square, show: false } : { ...square, show: true }))
     }
 
+    const doClick = num => {
+        setSelected(num)
+        setSq(s => s.map(square => square.number === num ? { ...square, show: false } : { ...square }))
+    }
 
-        return (
-            <>
-                <h1>STATE {sq.filter(s => s.number < 300).length}</h1>
-                <div className="container">
+    const resurect = () => {
+        setSq(s => s.map(square => square.number === selected ? { ...square, show: true } : { ...square }))
+    }
 
-                    {
-                        sq.map((n, i) => n.show ? <div style={{
-                            backgroundColor: n.number < 300 ? 'black' : n.color,
-                            borderRadius: n.number % 2 ? null : '50%'
-                        }} key={i}>{n.number}</div> : null)
-                    }
-                </div>
-                <div className="container">
-                    <button onClick={add}>add []</button>
-                    <button onClick={sortUp}>SORT 9-0</button>
-                    <button onClick={sortDown}>SORT 0-9</button>
-                    <button onClick={sortDefault}>SORT DEFAULT</button>
-                    <button onClick={filterBlack}>SHOW BLCK</button>
-                    <button onClick={filterColor}>SHOW CLR</button>
-                </div>
+    const first5 = () => {
+        setSq(s => s.map((square, i) => i < 5 ? { ...square, show: true } : { ...square, show: false }))
+    }
 
-            </>
-        )
+    return (
+        <>
+            <h1>{selected} STATE {sq.filter(s => s.number < 300).length}</h1>
+            <div className="container">
 
+                {
+                    sq.map((n, i) => n.show ? <div style={{
+                        backgroundColor: n.number < 300 ? 'black' : n.color,
+                        borderRadius: n.number % 2 ? null : '50%'
+                    }} key={i} onClick={() => doClick(n.number)}>{n.number}</div> : null)
                 }
+            </div>
+            <div className="container">
+                <button onClick={add}>add []</button>
+                <button onClick={sortUp}>SORT 9-0</button>
+                <button onClick={sortDown}>SORT 0-9</button>
+                <button onClick={sortDefault}>SORT DEFAULT</button>
+                <button onClick={filterBlack}>SHOW BLCK</button>
+                <button onClick={filterColor}>SHOW CLR</button>
+                <button onClick={resurect}>Resurect</button>
+                <button onClick={first5}>Show 5</button>
+            </div>
 
-    export default Squares;
+        </>
+    )
+
+}
+
+export default Squares;
 
 

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import rand from '../../Functions/rand';
 import randColor from '../../Functions/randColor';
@@ -8,6 +9,12 @@ function Squares() {
 
     const [sq, setSq] = useState([])
     const [selected, setSelected] = useState(null)
+    const [color, setColor] = useState(randColor())
+    const [sort, setSort] = useState(1)
+
+    useEffect(() => {
+        setColor(randColor())
+    }, [sq]);
 
     const add = () => {
         setSq(s => [...s, {
@@ -50,9 +57,14 @@ function Squares() {
         setSq(s => s.map((square, i) => i < 5 ? { ...square, show: true } : { ...square, show: false }))
     }
 
+    const sortboth = () => {
+        setSq(s => [...s].sort((a, b) => sort * (a.number - b.number)))
+        setSort(s => s * -1)
+    }
+
     return (
         <>
-            <h1>{selected} STATE {sq.filter(s => s.number < 300).length}</h1>
+            <h1 style={{ color }}>{selected} STATE {sq.filter(s => s.number < 300).length}</h1>
             <div className="container">
 
                 {
@@ -71,6 +83,7 @@ function Squares() {
                 <button onClick={filterColor}>SHOW CLR</button>
                 <button onClick={resurect}>Resurect</button>
                 <button onClick={first5}>Show 5</button>
+                <button onClick={sortboth}>Sort Both by Number</button>
             </div>
 
         </>

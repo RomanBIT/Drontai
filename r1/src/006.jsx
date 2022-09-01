@@ -1,6 +1,6 @@
 
 import './App.scss';
-
+import Squares from './Components/006/Square';
 
 
 function App() {
@@ -9,12 +9,10 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-               <h1>FORM</h1>
+                <Squares />
             </header>
         </div>
     );
 }
 
 export default App;
-
-//-------------007 23:04 ----------//

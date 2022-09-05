@@ -1,4 +1,4 @@
-
+import Text from '../src/Components/008/text'
 import './App.scss';
 
 
@@ -9,7 +9,8 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-               <h1>FORM</h1>
+                <h1>FORM</h1>
+                    <Text />
             </header>
         </div>
     );
@@ -17,4 +18,4 @@ function App() {
 
 export default App;
 
-//-------------007 23:04 ----------//
+

@@ -2,8 +2,8 @@ import { useState } from 'react';
 function Text() {
 
     const [text, setText] = useState('')
-    const [color, setColor] = useState('red')
-    const [range, setRange] = useState(0)
+    const [color, setColor] = useState('skyblue')
+    const [range, setRange] = useState('0')
 
     const control = e => {
         //   Number(e.target.value) && setText(e.target.value);
@@ -15,8 +15,7 @@ function Text() {
     const rangeControl = e => {
         setRange(e.target.value)
     }
-
-
+    
 
     return (
         <>
@@ -27,12 +26,12 @@ function Text() {
             <div className="form-container">
                 <h2 style={{ color }}>COLOR</h2>
                 <input type="color" onChange={colorize} value={color} />
+                <button onClick={() => setColor('red')}>MAKE IT RED AGAIN </button>
             </div>
             <div className="form-container">
-                <h2>RANGE: { range.padStart(3, 0) }</h2>
+                <h2>RANGE: {range.padStart(3, 0)}</h2>
                 <input type="range" onChange={rangeControl} value={range} />
             </div>
-
         </>
     )
 }

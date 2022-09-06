@@ -134,9 +134,13 @@ button {
     color: black;
     font-family: 'Courier New', Courier, monospace;
   }
-}
 
-label {
-  cursor: pointer;
-  user-select: none;
+  label {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  input[type=checkbox] {
+    display: none;
+  }
 }

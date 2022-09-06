@@ -1,31 +1,39 @@
-import './App.scss';
-import Text from "./Components/010/Text"
 import { useState } from 'react';
+import './App.scss';
+import Dog from './Components/011/Dog'
 
 
 
 function App() {
 
-    const [textNow, setTextNow] = useState('');
+    const [dogs, setDogs] = useState([])
 
-    const [f1, setF1] = useState(false);
-    const [f2, setF2] = useState(false);
+    const add = () => {
+        setDogs(d => [...d, '']);
+    }
 
     return (
         <div className="App">
             <header className="App-header">
-                <h1>State Uplifting</h1>
-                <h2>TEXT: {textNow}</h2>
-                <Text setTextNow={setTextNow} />
+                <h1>Use Effect</h1>
+
                 <div className='container'>
-                    {f1 ? <div className='kv'></div> : mull} 
-                    {f2 ? <div className='ap'></div> : mull} 
+                    {
+                        dogs.map((_, i) => <Dog key={i} i={i}></Dog>)
+                    }
                 </div>
+
+                <div className='container'>
+                    <button onClick={add}>Add Dog</button>
+                </div>
+
             </header>
         </div>
     );
 }
 
 export default App;
+
+//------------ 011 23:08 ---------//
 
 

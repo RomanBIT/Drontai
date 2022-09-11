@@ -4,7 +4,10 @@ function Dog({ i }) {
 
 
     useEffect(() => {
-        console.log('Dog No: ' + i)
+        console.log('New dog')
+        return () => {
+            console.log('Dog gone')
+        }
 
     }, [])
 
@@ -13,4 +16,4 @@ function Dog({ i }) {
     )
 }
 
-export default Dog;
+export default Dog;  

@@ -188,3 +188,50 @@ button {
     color: white;
   }
 }
+
+.containerBin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 120px;
+  height: 340px;
+  border: 3px dashed skyblue;
+  margin: 20px;
+  padding: 6px;
+
+  div {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+}
+
+.layout-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .layout-left {
+    width: 30%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid grey;
+  }
+
+  .layout-right {
+    width: 60%;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid grey;
+  }
+}

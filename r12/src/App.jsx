@@ -31,6 +31,8 @@ function App() {
                 <h2>TWO: {counts?.two}</h2>
                 <button onClick={() => setCounts(c => ({ ...c, one: c.one + 1 }))}>One +</button>
                 <button onClick={() => setCounts(c => ({ ...c, two: c.two + 1 }))}>Two +</button>
+                <button onClick={() => setCounts(c => ({ ...c, one: c.one - 1 }))}>One -</button>
+                <button onClick={() => setCounts(c => ({ ...c, two: c.two - 1 }))}>Two -</button>
 
             </header>
         </div>
@@ -40,4 +42,4 @@ function App() {
 export default App;
 
 
-//---------- 012 47:30 ----------//
+//---------- 012 47:30 ----------//cd
